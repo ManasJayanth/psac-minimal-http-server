@@ -12,5 +12,8 @@
     "async": "^1.5.1",
     "bluebird": "^3.1.1",
     "tenreads-notification-dispatcher": "git+ssh://git@bitbucket.org/likewyss/tenreads-notification-dispatcher.git"
+  },
+  "devDependencies": {
+    "tape": "^4.4.0"
   }
 }
