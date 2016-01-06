@@ -1,0 +1,16 @@
+{
+  "name": "tenreads-breaking-news-dispatcher-server",
+  "version": "0.0.0",
+  "description": "Dispatcher server for Tenreads breaking news",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test/**.js"
+  },
+  "author": "Manas <manas@likewyss.com>",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^1.5.1",
+    "bluebird": "^3.1.1",
+    "tenreads-notification-dispatcher": "git+ssh://git@bitbucket.org/likewyss/tenreads-notification-dispatcher.git"
+  }
+}
