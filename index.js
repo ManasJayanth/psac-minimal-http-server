@@ -27,7 +27,7 @@ var middlewares = [
                 } else {
                     parser = qs;
                 }
-                request.body = qs.parse(bodyString);
+                request.body = parser.parse(bodyString);
                 next();
             });
         }
@@ -44,4 +44,4 @@ http.createServer(function (request, response) {
 
 }).listen(process.env.PORT);
 
-console.log('Server running at http://127.0.0.1:8124/');
+console.log('Server running at http://127.0.0.1:' + process.env.PORT + '/');
