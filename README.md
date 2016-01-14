@@ -1,3 +1,3 @@
-# psac-minimal-http-server
+# Minimal Http Server
 
 Minimal express like server framework
