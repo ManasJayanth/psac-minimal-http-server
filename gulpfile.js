@@ -1,27 +1,23 @@
 var gulp = require("gulp");
 var sourcemaps = require("gulp-sourcemaps");
 var babel = require('gulp-babel');
-var spawn = require('child_process').spawn;
 var gutils = require('gulp-util');
-
-gulp.task('default', function () {
+var watch = require('gulp-watch');
+var runSequence = require('run-sequence');
+ 
+gulp.task('babel', function () {
   return gulp.src('src/**')
     .pipe(sourcemaps.init())
-    .pipe(babel())
+    .pipe(babel({
+        presets: ['es2015']
+    }))
     // .pipe(concat('all.js'))
     .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest('dist')).on('end', function () {
-        var server = spawn('node', ['src/index']);
+    .pipe(gulp.dest('dist'));
+});
 
-        server.stdout.on('data', (data) => {
-            console.log(`${data}`);
-        });
-
-        server.stderr.on('data', (data) => {
-            console.log(`ps stderr: ${data}`);
-        });
-
-        server.on('close', (code) => {
-        });
+gulp.task('default', function () {
+    watch(['src/**.js'], function (fileVinyl) {
+        runSequence(['babel']);
     });
 });
