@@ -10,9 +10,11 @@
   "author": "Manas <manas@likewyss.com>",
   "license": "ISC",
   "dependencies": {
-    "async": "^1.5.1",
+    "async": "^1.5.2",
     "babel": "^6.3.26",
     "bluebird": "^3.1.1",
+    "gulp": "^3.9.0",
+    "gulp-sourcemaps": "^1.6.0",
     "tenreads-notification-dispatcher": "git+ssh://git@bitbucket.org/likewyss/tenreads-notification-dispatcher.git"
   },
   "devDependencies": {
