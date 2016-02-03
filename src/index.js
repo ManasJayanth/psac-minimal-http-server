@@ -3,7 +3,8 @@ var qs = require('querystring');
 var nodeAsync = require('async');
 var controllers = require('./controllers');
 var routeMaps = {
-    '/notify/breaking-news': controllers.notify.breakingNews
+    '/notify/breaking-news': controllers.notify.breakingNews,
+    '/': controllers.home
 };
 
 var middlewares = [
@@ -30,18 +31,18 @@ var middlewares = [
                 request.body = parser.parse(bodyString);
                 next();
             });
+        } else {
+            next();
         }
     }
 ];
 
 http.createServer(function (request, response) {
-
     nodeAsync.eachSeries(middlewares, function iterator(middleware, callback) {
         middleware(request, response, callback);
     }, function done() {
         routeMaps[request.url][request.method.toLowerCase()](request, response);
     });
-
 }).listen(process.env.PORT);
 
 console.log('Server running at http://127.0.0.1:' + process.env.PORT + '/');
